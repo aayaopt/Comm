@@ -1,9 +1,80 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:app="http://schemas.android.com/apk/res-auto"
-          xmlns:tools="http://schemas.android.com/tools"
-          android:id="@+id/fragment"
-          android:name="mvp.pengfei.ui.SampleActFragment"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          app:layout_behavior="@string/appbar_scrolling_view_behavior"
-          tools:layout="@layout/fragment_sample"/>
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_marginTop="60dp"
+              android:orientation="vertical">
+
+
+    <com.pengfei.Topbar
+        android:id="@+id/tbar_my"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="100dp"
+        android:background="#ffF59595"
+
+        app:imageCenterSrc="@mipmap/icon_xialajiantou_3x"
+        app:imageLeftSrc="@mipmap/icon_back_3x"
+
+        app:styleType="9"
+
+        app:title="title"
+        app:titleTextColor1="#000000"
+        app:titleTextSize="8sp"
+
+        app:rightText="12345"
+        app:rightTextColor="#000000"
+
+        app:imageRightSrc="@mipmap/ic_launcher"
+        />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_launcher"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/icon_mail_2x"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_launcher"/>
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/icon_mail_2x"/>
+
+
+    <!--<com.pengfei.SettingItem-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_marginTop="150dp"-->
+    <!--app:imgLeftBg="@mipmap/ic_launcher"-->
+    <!--app:imgRightBg="@mipmap/icon_mail_2x"-->
+    <!--app:tvTitleColor="#fff000"-->
+    <!--app:tvTitleName="big title"-->
+    <!--/>-->
+
+
+    <!--<com.pengfei.PKKItem-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_marginTop="200dp"-->
+    <!--app:imgviewSrc="@mipmap/icon_xialajiantou_3x"-->
+    <!--app:leftTextBackground="@mipmap/icon_back_3x"-->
+    <!--app:leftTextColor="#000000"-->
+    <!--app:rightTextColor="#000000"-->
+    <!--app:titleTextColor1="#000000"-->
+    <!--app:titleTextSize="8sp"-->
+    <!--app:tvTitleName="no title"-->
+    <!--/>-->
+
+</LinearLayout>

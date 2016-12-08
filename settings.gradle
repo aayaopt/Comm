@@ -1,1 +1,1 @@
-include ':app', ':library', ':topbar'
+include ':app', ':library', ':myviews'

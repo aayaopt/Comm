@@ -7,18 +7,15 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import static android.R.attr.visible;
 
 /**
  * Created by pf on 16/12/6.
  */
 
-public class Topbar extends RelativeLayout {
+public class PKKItem extends RelativeLayout {
     /**
      * 所有的控件
      * 左右Button
@@ -26,11 +23,9 @@ public class Topbar extends RelativeLayout {
      * 中间标题TextView
      * imgView 下拉箭头
      */
-    private Button leftButton, rightButton;
+    private ImageView leftImgView, rightImgView;
 
-    private RelativeLayout centerLayout;
     private TextView tvTitle;
-    private ImageView imgView;
 
     /**
      * 左Button属性
@@ -88,20 +83,20 @@ public class Topbar extends RelativeLayout {
 
 
     @SuppressWarnings("ResourceType")
-    public Topbar(Context context, AttributeSet attrs) {
+    public PKKItem(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         /**获取attr定义的属性
          * get的类型对应atts format的类型*/
-        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.Topbar);
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.setting_item);
         /**左btn的属性*/
-        leftTextColor = ta.getColor(R.styleable.Topbar_leftTextColor, 0);
-        leftBackgund = ta.getDrawable(R.styleable.Topbar_leftTextBackground);
-        leftText = ta.getString(R.styleable.Topbar_leftText);
-        /**右btn的属性*/
-        rightTextColor = ta.getColor(R.styleable.Topbar_rightTextColor, 0);
-        rightBackgund = ta.getDrawable(R.styleable.Topbar_rightTextBackground);
-        rightText = ta.getString(R.styleable.Topbar_rightText);
+//        leftTextColor = ta.getColor(R.styleable.Topbar_leftTextColor, 0);
+//        leftBackgund = ta.getDrawable(R.styleable.Topbar_leftTextBackground);
+//        leftText = ta.getString(R.styleable.Topbar_leftText);
+//        /**右btn的属性*/
+//        rightTextColor = ta.getColor(R.styleable.Topbar_rightTextColor, 0);
+//        rightBackgund = ta.getDrawable(R.styleable.Topbar_rightTextBackground);
+//        rightText = ta.getString(R.styleable.Topbar_rightText);
 
         /**中间标题文字的属性*/
         titleTextColor = ta.getColor(R.styleable.Topbar_titleTextColor1, 0);
@@ -109,27 +104,25 @@ public class Topbar extends RelativeLayout {
         titleTextSize = ta.getDimension(R.styleable.Topbar_titleTextSize, 0);
 
 
-        imgScr = ta.getDrawable(R.styleable.Topbar_imgviewSrc);
+//        imgScr = ta.getDrawable(R.styleable.Topbar_imgviewSrc);
         /**垃圾回收*/
 
         /**创建具体控件对象*/
-        leftButton = new Button(context);
-        rightButton = new Button(context);
+        leftImgView = new ImageView(context);
+        rightImgView = new ImageView(context);
         tvTitle = new TextView(context);
-        centerLayout = new RelativeLayout(context);
-        imgView = new ImageView(context);
 
         /**左btn 设置具体的属性*/
-        leftButton.setTextColor(leftTextColor);
-        leftButton.setBackground(leftBackgund);
-//        leftButton.setBackgroundResource((int)leftBackgund);
-//        leftButton
-        leftButton.setText(leftText);
-
-        /**右btn 设置具体的属性*/
-        rightButton.setTextColor(rightTextColor);
-        rightButton.setBackground(null);
-        rightButton.setText(rightText);
+//        leftImgView.setTextColor(leftTextColor);
+//        leftImgView.setBackground(leftBackgund);
+////        leftButton.setBackgroundResource((int)leftBackgund);
+////        leftButton
+//        leftImgView.setText(leftText);
+//
+//        /**右btn 设置具体的属性*/
+//        rightImgView.setTextColor(rightTextColor);
+//        rightImgView.setBackground(null);
+//        rightImgView.setText(rightText);
 
         /**标题 设置具体的属性*/
         tvTitle.setTextColor(titleTextColor);
@@ -144,12 +137,12 @@ public class Topbar extends RelativeLayout {
          * 并addView*/
         leftParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 40);
         leftParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT, TRUE);//
-        addView(leftButton, leftParams);
+        addView(leftImgView, leftParams);
 
         rightParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         rightParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, TRUE);//
-        addView(rightButton, rightParams);
+        addView(rightImgView, rightParams);
 
 
         centerLayoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -166,51 +159,11 @@ public class Topbar extends RelativeLayout {
 
 
         tvTitle.setId(9);
-        titleParams = new LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT);
+        titleParams = new LayoutParams(LayoutParams.WRAP_CONTENT,
+                LayoutParams.WRAP_CONTENT);
         titleParams.addRule(RelativeLayout.CENTER_HORIZONTAL|RelativeLayout.CENTER_VERTICAL, TRUE);
-        centerLayout.addView(tvTitle, titleParams);
+        addView(tvTitle, titleParams);
 
-        imgView.setImageDrawable(imgScr);
-        imgParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-        imgParams.addRule(RelativeLayout.BELOW, 9);//
-        imgParams.addRule(RelativeLayout.CENTER_HORIZONTAL, 9);
-        centerLayout.addView(imgView, imgParams);
-
-
-        addView(centerLayout, centerLayoutParams);
-
-        /**各个控件的点击事件的回调机制*/
-        leftButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.onLeftClick();
-            }
-        });
-
-        rightButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.onRightClick();
-            }
-        });
-
-
-//        tvTitle.setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                listener.onTitleClick();
-//            }
-//        });
-
-
-        centerLayout.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.onCenterClick();
-            }
-        });
 
 
 
@@ -233,28 +186,28 @@ public class Topbar extends RelativeLayout {
     }
 
     private void setVisibilitys(int type, int visible) {
-        if (left == type) {
-            leftButton.setVisibility(visible);
-        }
-        if (right == type) {
-            rightButton.setVisibility(visible);
-        }
-        if (center == type) {
-            imgView.setVisibility(visible);
-        }
+//        if (left == type) {
+//            leftImgView.setVisibility(visible);
+//        }
+//        if (right == type) {
+//            rightImgView.setVisibility(visible);
+//        }
+//        if (center == type) {
+//            imgView.setVisibility(visible);
+//        }
     }
 
 
 
     public void setBarText(int type, String str) {
-        if (left == type) {
-            leftButton.setText(str);
-        }
-        if (right == type) {
-            rightButton.setText(str);
-        }
-        if (title1 == type) {
-           tvTitle.setText(str);
-        }
+//        if (left == type) {
+//            leftImgView.setText(str);
+//        }
+//        if (right == type) {
+//            rightImgView.setText(str);
+//        }
+//        if (title1 == type) {
+//           tvTitle.setText(str);
+//        }
     }
 }

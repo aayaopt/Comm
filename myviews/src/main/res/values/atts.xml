@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--P ：single name ！！！ -->
+    <declare-styleable name="Topbar">
+        <!--center title att-->
+        <attr name="title" format="string"/>
+        <attr name="titleTextSize" format="dimension"/>
+        <attr name="titleTextColor1" format="reference|color"/>
+
+        <!--left button att -->
+        <attr name="leftText" format="string"/>
+        <attr name="leftTextSize" format="dimension"/>
+        <attr name="leftTextColor" format="reference|color"/>
+        <attr name="leftTextBackground" format="reference|color|float"/>
+
+        <!--right button att-->
+        <attr name="rightText" format="string"/>
+        <attr name="rightTextSize" format="dimension"/>
+        <attr name="rightTextColor" format="reference|color"/>
+        <attr name="rightTextBackground" format="reference|color"/>
+
+        <!--the image att below title-->
+        <attr name="imageCenterSrc" format="reference|color"/>
+
+        <!--left image att -->
+        <attr name="imageLeftSrc" format="reference|color"/>
+        <!--right image att -->
+        <attr name="imageRightSrc" format="reference|color"/>
+        <attr name="styleType" format="integer"/>
+
+    </declare-styleable>
+
+
+    <declare-styleable name="setting_item" >
+        <attr name="imgLeftBg" format="reference"/>
+        <attr name="imgRightBg" format="reference"/>
+        <attr name="tvTitleName" format="string"/>
+        <attr name="tvTitleSize" format="dimension"/>
+        <attr name="tvTitleColor" format="reference|color"/>
+    </declare-styleable>
+</resources>

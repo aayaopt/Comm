@@ -2,7 +2,6 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:my="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,20 +22,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <com.pengfei.Topbar
-        android:id="@+id/tbar_my"
-        android:layout_marginTop="100dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        my:title="自定义标题"
-        my:titleTextSize="8sp"
-        my:titleTextColor1="#000000"
-        my:leftText="back"
-        my:leftTextColor="#000000"
-        my:rightText="more"
-        my:rightTextColor="#000000"
-        my:imgviewSrc="@mipmap/icon_xialajiantou_3x"
-        />
 
 
     <android.support.design.widget.FloatingActionButton

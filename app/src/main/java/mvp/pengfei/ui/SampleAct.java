@@ -44,69 +44,71 @@ public class SampleAct extends MvpActivity<MainPresenter> implements MainView {
             }
         });
           topbar = (Topbar) findViewById(R.id.tbar_my);
-        topbar.setCallListener(new Topbar.CallListener() {
-            @Override
-            public void onLeftClick() {
-                Log.i("PF", "触发点击事件，onLeftClick");
-            }
 
-            @Override
-            public void onRightClick() {
-                Log.i("PF", "触发点击事件，onRightClick");
-            }
 
+
+//        topbar.setCallListener(new Topbar.CallListener() {
 //            @Override
-//            public void onTitleClick() {
-//                Log.i("PF", "触发点击事件，onTitleClick");
+//            public void onLeftClick() {
+//                Log.i("PF", "触发点击事件，onLeftClick");
 //            }
-
-            @Override
-            public void onCenterClick() {
-                Log.i("PF", "触发点击事件，onCenterClick");
-            }
-        });
-
-
-
-
-
+//
+//            @Override
+//            public void onRightClick() {
+//                Log.i("PF", "触发点击事件，onRightClick");
+//            }
+//
+////            @Override
+////            public void onTitleClick() {
+////                Log.i("PF", "触发点击事件，onTitleClick");
+////            }
+//
+//            @Override
+//            public void onCenterClick() {
+//                Log.i("PF", "触发点击事件，onCenterClick");
+//            }
+//        });
+//
+//
+//
+//
+//
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                topbar.setBarText(topbar.title1,"美女");
-                topbar.setBarVisibility(topbar.center,false);
+                topbar.setType(1);
             }
         }, 4000);
-
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                topbar.setBarVisibility(topbar.left,false);
-            }
-        }, 5000);
-
-
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                topbar.setBarVisibility(topbar.right,false);
-            }
-        }, 3000);
-
-
-
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                topbar.setBarVisibility(topbar.right,true);
-                topbar.setBarVisibility(topbar.left,true);
-                topbar.setBarText(topbar.title1,"666");
-            }
-        }, 7000);
-
-
-
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                topbar.setBarVisibility(topbar.center,true);
-            }
-        }, 8000);
+//
+//        new Handler().postDelayed(new Runnable() {
+//            public void run() {
+//                topbar.setBarVisibility(topbar.left,false);
+//            }
+//        }, 5000);
+//
+//
+//        new Handler().postDelayed(new Runnable() {
+//            public void run() {
+//                topbar.setBarVisibility(topbar.right,false);
+//            }
+//        }, 3000);
+//
+//
+//
+//        new Handler().postDelayed(new Runnable() {
+//            public void run() {
+//                topbar.setBarVisibility(topbar.right,true);
+//                topbar.setBarVisibility(topbar.left,true);
+//                topbar.setBarText(topbar.title1,"666");
+//            }
+//        }, 7000);
+//
+//
+//
+//        new Handler().postDelayed(new Runnable() {
+//            public void run() {
+//                topbar.setBarVisibility(topbar.center,true);
+//            }
+//        }, 8000);
 
     }
 

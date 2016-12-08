@@ -28,7 +28,7 @@ import rx.subscriptions.CompositeSubscription;
 /**
 
  */
-public class BaseActivity extends AppCompatActivity {
+public class  BaseActivity extends AppCompatActivity {
     public Activity mActivity;
     public ApiService api = AppClient.retrofit().create(ApiService.class);
     private CompositeSubscription mCompositeSubscription;
